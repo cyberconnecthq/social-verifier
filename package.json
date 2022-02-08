@@ -1,21 +1,30 @@
 {
-  "name": "twitter-verify-front",
+  "name": "@cyberlab/social-verifier",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "files": [
-    "lib/**/*"
-  ],
+  "main": "lib/index.js",
+  "bin": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc -p .",
     "release": "standard-version",
     "prepare": "husky install"
   },
+  "standard-version": {
+    "skip": {
+      "commit": true
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cyberconnecthq/twitter-verify-front.git"
   },
-  "keywords": [],
+  "keywords": [
+    "cyberconnect",
+    "social verify",
+    "twitter verify",
+    "connect"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
