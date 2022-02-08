@@ -1,8 +1,8 @@
 # social-verifier
 
-`Social Verifier` supports the APIs for users to simply implement social verify process. (Twitter supported currently).
+`Social Verifier` helps user to implement social verify process easily. (Twitter supported currently).
 
-You can check the list of verified mappings in [Connect-list](https://github.com/cyberconnecthq/connect-list) repo.
+You can check the list of verified mappings in [Connect List](https://github.com/cyberconnecthq/connect-list) repo.
 
 Also, you can use our [CyberConnect API](https://docs.cyberconnect.me/) to check an identity twitter account.
 
@@ -26,6 +26,8 @@ yarn add @cyberlab/social-verifier
 
 #### Signing Data
 
+Using `twitterAuthorize` to get signature message.
+
 ```ts
 import { twitterAuthorize } from "@cyberlab/cyberconnect";
 
@@ -35,9 +37,9 @@ const sig = twitterAuthorize(provider, address);
 - `provider` - An ETH provider which should implement one of the following methods: send, sendAsync, request.
 - `address` - The Ethereum address that you want to link with your profile.
 
-#### Post message
+#### Posting message
 
-You can customize your tweet text, but the text should include the sig from the Signing Data step
+You can customize your tweet text, but the text should include the signature message from the `Signing Data` step.
 
 ```ts
 const text = `Verifying my Web3 identity on @cyberconnecthq: %23LetsCyberConnect %0A ${sig}`;
@@ -45,9 +47,9 @@ const text = `Verifying my Web3 identity on @cyberconnecthq: %23LetsCyberConnect
 window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank");
 ```
 
-#### Verify
+#### Verifying
 
-After posting the tweet, you can call `twitterVerify` to link your address with your twitter account. You can check the list of verified mappings in [Connect-list](https://github.com/cyberconnecthq/connect-list) repo.
+After posting the tweet, you can call `twitterVerify` to link your address with your twitter account. You can check the list of verified mappings in [Connect List](https://github.com/cyberconnecthq/connect-list) repo.
 
 ```ts
 import { twitterVerify } from "@cyberlab/cyberconnect";
