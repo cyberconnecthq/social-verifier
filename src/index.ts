@@ -1,6 +1,6 @@
 import { getSignature } from "./utils";
 
-export const twitterAuthorize = async (provider: any, address: any) => {
+export const twitterAuthorize = async (provider: any, address: string) => {
   if (!address) {
     throw Error("Address can not be empty.");
   }
