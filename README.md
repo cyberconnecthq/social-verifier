@@ -29,7 +29,7 @@ yarn add @cyberlab/social-verifier
 Using `twitterAuthorize` to get signature message.
 
 ```ts
-import { twitterAuthorize } from "@cyberlab/cyberconnect";
+import { twitterAuthorize } from "@cyberlab/social-verifier";
 
 const sig = twitterAuthorize(provider, address);
 ```
@@ -52,7 +52,7 @@ window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank");
 After posting the tweet, you can call `twitterVerify` to link your address with your twitter account. You can check the list of verified mappings in [Connect List](https://github.com/cyberconnecthq/connect-list) repo.
 
 ```ts
-import { twitterVerify } from "@cyberlab/cyberconnect";
+import { twitterVerify } from "@cyberlab/social-verifier";
 
 await twitterVerify(address, handle);
 console.log("Verify Success!");
