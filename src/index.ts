@@ -38,6 +38,6 @@ export const twitterVerify = async (address: string, handle: string) => {
   const res = await response.json();
 
   if (res.errorText) {
-    throw Error(res.errText);
+    throw Error(res.errorText);
   }
 };
