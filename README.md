@@ -54,8 +54,12 @@ After posting the tweet, you can call `twitterVerify` to link your address with 
 ```ts
 import { twitterVerify } from "@cyberlab/social-verifier";
 
-await twitterVerify(address, handle);
-console.log("Verify Success!");
+try {
+  await twitterVerify(address, handle);
+  console.log("Verify Success!");
+} catch (e) {
+  console.log("Error: ", e.message);
+}
 ```
 
 - `address` - The Ethereum address that you want to link with your twitter account.
