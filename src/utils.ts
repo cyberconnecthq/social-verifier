@@ -58,7 +58,6 @@ export const getSignature = async ({
   message: string;
   address: string;
 }) => {
-  // ETH Provider
   const signature = await safeSend(provider, "eth_signTypedData_v4", [
     address,
     message,
