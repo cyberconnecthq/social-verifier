@@ -19,7 +19,11 @@ const getMsgParams = (contents: string) =>
     },
   });
 
-export const twitterAuthorize = async (provider: any, address: string) => {
+export const twitterAuthorize = async (
+  provider: any,
+  address: string,
+  handle: string
+) => {
   if (!address) {
     throw Error("Address can not be empty.");
   }
@@ -28,7 +32,9 @@ export const twitterAuthorize = async (provider: any, address: string) => {
     throw Error("Provider can not be empty.");
   }
 
-  const msgParams = getMsgParams("I'm verifying my Twitter account.");
+  const msgParams = getMsgParams(
+    `I'm verifying my Twitter account with handle ${handle}.`
+  );
 
   const sig = await getSignature({ provider, message: msgParams, address });
 
@@ -36,7 +42,7 @@ export const twitterAuthorize = async (provider: any, address: string) => {
 };
 
 export const twitterVerify = async (address: string, handle: string) => {
-  const url = `https://cyberconnect-worker.twitter-verify.workers.dev/api/github-verify?handle=${handle}&addr=${address}`;
+  const url = `https://cyberconnect-worker.twitter-verify.workers.dev/api/v2/twitter-verify?handle=${handle}&addr=${address}`;
   const response = await fetch(url);
   const res = await response.json();
 
@@ -67,8 +73,8 @@ export const githubAuthorize = async (
   return `sig:${sig}`;
 };
 
-export const githubVerify = async (address: string, username: string) => {
-  const url = `https://cyberconnect-worker.twitter-verify.workers.dev/api/twitter-verify?handle=${username}&addr=${address}`;
+export const githubVerify = async (address: string, gist_id: string) => {
+  const url = `https://cyberconnect-worker.twitter-verify.workers.dev/api/github-verify?gist_id=${gist_id}&addr=${address}`;
   const response = await fetch(url);
   const res = await response.json();
 
