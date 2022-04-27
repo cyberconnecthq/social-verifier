@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.0.0 (2022-04-27)
+
+### ⚠ BREAKING CHANGES
+
+- add handle as the required parameter in twitterAuthorize function
+
+### Features
+
+- add github verify ([d66f48b](https://github.com/cyberconnecthq/twitter-verify-front/commit/d66f48b2ce6f5d47f1de779ad720816c32c1bf43))
+
+### Bug Fixes
+
+- add handle parameter for twitterAuthorize ([c6226d2](https://github.com/cyberconnecthq/twitter-verify-front/commit/c6226d2502bb7a21dad2dbb7a0a78a8279d371b1))
+
 ## 1.1.0 (2022-02-28)
 
 ### Bug Fixes
