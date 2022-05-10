@@ -63,7 +63,7 @@ After posting the tweet, you can call `twitterVerify` to link your address with 
 import { twitterVerify } from "@cyberlab/social-verifier";
 
 try {
-  await twitterVerify(address, handle);
+  await twitterVerify(address, handle, namespace);
   console.log("Verify Success!");
 } catch (e) {
   console.log("Error: ", e.message);
@@ -72,6 +72,7 @@ try {
 
 - `address` - The Ethereum address that you want to link with your Twitter account.
 - `handle` - The handle of your Twitter account.
+- `namespace` - (optional) Your applciation name.
 
 ---
 
@@ -109,7 +110,7 @@ After posting the gist, you can call `githubVerify` to link your address with yo
 import { githubVerify } from "@cyberlab/social-verifier";
 
 try {
-  await githubVerify(address, gist_id);
+  await githubVerify(address, gistId, namespace);
   console.log("Verify Success!");
 } catch (e) {
   console.log("Error: ", e.message);
@@ -117,7 +118,8 @@ try {
 ```
 
 - `address` - The Ethereum address that you want to link with your Github account.
-- `gist_id` - The id of your Github gist. It's the last part of your gist url.
+- `gistId` - The id of your Github gist. It's the last part of your gist url.
+- `namespace` - (optional) Your applciation name.
 
 ## Contributing
 

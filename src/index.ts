@@ -1,4 +1,7 @@
 import { getSignature } from "./utils";
+import { endpoint } from "./const";
+import { verifyGithubGql, verifyTwitterGql } from "./graphql";
+import request from "graphql-request";
 
 const getMsgParams = (contents: string) =>
   JSON.stringify({
@@ -41,14 +44,22 @@ export const twitterAuthorize = async (
   return `sig:${sig}`;
 };
 
-export const twitterVerify = async (address: string, handle: string) => {
-  const url = `https://cyberconnect-worker.twitter-verify.workers.dev/api/v2/twitter-verify?handle=${handle}&addr=${address}`;
-  const response = await fetch(url);
-  const res = await response.json();
+export const twitterVerify = async (
+  address: string,
+  handle: string,
+  namespace?: string
+) => {
+  const res = await request(endpoint, verifyTwitterGql, {
+    address,
+    handle,
+    namespace,
+  });
 
-  if (res.errorText) {
-    throw Error(res.errorText);
+  if (res?.verifyTwitter?.result !== "SUCCESS") {
+    throw Error(res?.verifyTwitter?.result);
   }
+
+  return res;
 };
 
 export const githubAuthorize = async (
@@ -73,12 +84,20 @@ export const githubAuthorize = async (
   return `sig:${sig}`;
 };
 
-export const githubVerify = async (address: string, gist_id: string) => {
-  const url = `https://cyberconnect-worker.twitter-verify.workers.dev/api/github-verify?gist_id=${gist_id}&addr=${address}`;
-  const response = await fetch(url);
-  const res = await response.json();
+export const githubVerify = async (
+  address: string,
+  gistId: string,
+  namespace?: string
+) => {
+  const res = await request(endpoint, verifyGithubGql, {
+    address,
+    gistId,
+    namespace,
+  });
 
-  if (res.errorText) {
-    throw Error(res.errorText);
+  if (res?.verifyGithub?.result !== "SUCCESS") {
+    throw Error(res?.verifyGithub?.result);
   }
+
+  return res;
 };

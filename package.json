@@ -50,5 +50,9 @@
     "*.{js,json,yml,yaml,css,scss,ts,tsx,md}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "graphql": "^16.5.0",
+    "graphql-request": "^4.2.0"
   }
 }
