@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/cyberconnecthq/twitter-verify-front/compare/v2.0.0...v2.0.1) (2022-05-10)
+
+### Bug Fixes
+
+- change endpoint ([358f025](https://github.com/cyberconnecthq/twitter-verify-front/commit/358f02530890dc41f6810fd22f28e568810e5a87))
+
 ## 2.0.0 (2022-04-27)
 
 ### ⚠ BREAKING CHANGES
